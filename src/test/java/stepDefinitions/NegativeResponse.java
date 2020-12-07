@@ -10,22 +10,21 @@ import io.restassured.response.Response;
 
 public class NegativeResponse {
 	Response r;
-	@Given("API for foreign exchange")
-	public void api_for_foreign_exchange() throws Throwable{
-		r=RestAssured.given().when().get("https://api.ratesapi.io/api/");
-		 System.out.println(r.getBody().toString());
-	}
+		@Given("API for the foreign exchanges")
+		public void api_for_the_foreign_exchanges() throws Throwable{
+			r=RestAssured.given().when().get("https://api.ratesapi.io/api/");
+			 System.out.println(r.getBody().toString());
+		}
 
-	@When("posted with correct Information")
-	public void posted_with_correct_information() throws Throwable{
-		 RestAssured.given().when().get("https://api.ratesapi.io/api/").then().log().all();
-	}
+		@When("posted with correct Informations")
+		public void posted_with_correct_informations() throws Throwable{
+			 RestAssured.given().when().get("https://api.ratesapi.io/api/").then().log().all();
+		}
 
-	@Then("validate positive response code received")
-	public void validate_positive_response_code_received() throws Throwable{
-		Assert.assertEquals(r.getContentType(),"application/json");
-		Assert.assertEquals(r.getStatusLine(),"HTTP/1.1 400 Bad Request");
-		Assert.assertEquals(r.getStatusCode(), 400);
-	}
-
+		@Then("validate the positive response code received")
+		public void validate_the_positive_response_code_received() throws Throwable{
+			Assert.assertEquals(r.getContentType(),"application/json");
+			Assert.assertEquals(r.getStatusLine(),"HTTP/1.1 400 Bad Request");
+			Assert.assertEquals(r.getStatusCode(), 400);
+		}
 }
