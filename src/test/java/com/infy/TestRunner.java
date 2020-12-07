@@ -10,6 +10,6 @@ import io.cucumber.junit.CucumberOptions;
 		features= {"src/test/java"},
 		glue= {"stepDefinitions"}
 		)
-public class TestRunner {
+public class TestRunner{
 
 }
